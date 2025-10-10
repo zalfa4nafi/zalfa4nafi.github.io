@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Kreatif - [Nama Anda]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Variabel Warna */
+        :root {
+            --primary-color: #00ADB5; /* Warna Aksen Teal */
+            --secondary-color: #393E46; /* Warna Latar Belakang Gelap */
+            --text-color: #EEEEEE; /* Warna Teks Terang */
+            --light-bg: #222831; /* Warna Latar Belakang Lebih Terang */
+            --card-bg: #4A5059; /* Warna Kartu */
+        }
+
+        /* Reset dan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        section {
+            padding: 80px 10%;
+            min-height: 100vh;
+        }
+
+        /* Header dan Navigasi */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: var(--light-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .navbar a {
+            font-size: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--primary-color);
+        }
+
+        #menu-icon {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            cursor: pointer;
+            display: none; /* Sembunyikan di desktop */
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #009aa0;
+            transform: translateY(-2px);
+        }
+
+        /* Riwayat Section (Timeline) */
+        .riwayat {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .riwayat h2 {
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: left;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h4 {
+            margin-bottom: 5px;
+        }
+
+        .card .date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Portofolio Section */
+        .portofolio h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+
+        .portofolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portofolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .portofolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .portofolio-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--text-color);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .portofolio-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .overlay h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: var(--light-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .modal-content .tech-stack {
+            font-style: italic;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--primary-color);
+        }
+
+        .close-btn {
+            color: var(--text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* Kontak Section */
+        .kontak {
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .kontak h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .kontak p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 10%;
+            background: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        /* Responsive (Mobile View) */
+        @media (max-width: 991px) {
+            .header {
+                padding: 20px 5%;
+            }
+            section {
+                padding: 80px 5%;
+            }
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 0;
+                background: var(--light-bg);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                display: none; /* Sembunyikan default */
+                text-align: center;
+                transition: all 0.5s ease;
+            }
+            .navbar.active {
+                display: block; /* Tampilkan saat aktif */
+            }
+            .navbar a {
+                display: block;
+                margin: 1rem 0;
+                font-size: 1.2rem;
+            }
+            #menu-icon {
+                display: block; /* Tampilkan di mobile */
+            }
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-top: 40px;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            .modal-content {
+                width: 90%;
+                margin: 10% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">[Nama Anda]</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Profil</a>
+            <a href="#riwayat">Riwayat</a>
+            <a href="#portofolio">Portofolio</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+        <div id="menu-icon" class="fas fa-bars"></div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Halo, Saya **[Nama Anda]**</h1>
+                <p>Seorang **Desainer & Pengembang Web Kreatif** dengan fokus pada **pengalaman pengguna yang interaktif** dan estetika desain yang kuat.</p>
+                <a href="#portofolio" class="btn">Lihat Karya Saya</a>
+            </div>
+            <div class="hero-image">
+                <img src="profil.jpg" alt="Foto Profil"> </div>
+        </section>
+
+        <section id="riwayat" class="riwayat">
+            <h2>Riwayat Singkat</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Pendidikan</h3>
+                    <div class="card">
+                        <h4>Sarjana Teknik Informatika</h4>
+                        <p class="date">2018 - 2022</p>
+                        <p>Universitas Teknologi Kreatif</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <h3>Organisasi & Pengalaman</h3>
+                    <div class="card">
+                        <h4>Ketua Divisi Desain & IT</h4>
+                        <p class="date">2020 - 2021 | Himpunan Mahasiswa</p>
+                        <p>Bertanggung jawab atas desain materi publikasi dan pengelolaan website organisasi.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Freelancer Web Developer</h4>
+                        <p class="date">2022 - Sekarang</p>
+                        <p>Membangun berbagai website *custom* untuk klien kecil dan menengah.</p>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portofolio" class="portofolio">
+            <h2>Portofolio Pembuatan Website</h2>
+            <div class="portofolio-grid">
+                <div class="portofolio-item" onclick="showDetail('Proyek E-Commerce X', 'Aplikasi E-Commerce modern yang fokus pada UX/UI minimalis. Menggunakan fitur keranjang interaktif dan *lazy loading* untuk performa.', 'HTML, CSS (Sass), JavaScript (Vue.js), Node.js, MongoDB', 'screenshot-ecommerce.jpg')">
+                    <img src="screenshot-ecommerce.jpg" alt="Screenshot E-Commerce X"> 
+                    <div class="overlay">
+                        <h4>Proyek E-Commerce X</h4>
+                        <p>Vue.js | Node.js</p>
+                    </div>
+                </div>
+
+                <div class="portofolio-item" onclick="showDetail('Website Profil Agensi Y', 'Website satu halaman (*one-page*) dengan efek parallax dan animasi *scroll* yang halus. Dirancang responsif dan performa tinggi.', 'HTML5, CSS3, JavaScript Murni (Vanilla JS), GSAP Library', 'screenshot-agensi.jpg')">
+                    <img src="screenshot-agensi.jpg" alt="Screenshot Profil Agensi Y">
+                    <div class="overlay">
+                        <h4>Website Profil Agensi Y</h4>
+                        <p>Vanilla JS | GSAP</p>
+                    </div>
+                </div>
+                
+                </div>
+        </section>
+
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <img id="modal-image" src="" alt="Detail Proyek">
+                <h3 id="modal-title"></h3>
+                <p id="modal-desc"></p>
+                <p class="tech-stack">**Tech Stack:** <span id="modal-tech"></span></p>
+            </div>
+        </div>
+
+        <section id="kontak" class="kontak">
+            <h2>Hubungi Saya</h2>
+            <p>Tertarik untuk bekerja sama? Mari berdiskusi!</p>
+            <a href="mailto:emailanda@mail.com" class="btn primary">Kirim Email</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 [Nama Anda]. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // === 1. Interaksi Menu Hamburger (Mobile) ===
+            const menuIcon = document.getElementById('menu-icon');
+            const navbar = document.querySelector('.navbar');
+
+            menuIcon.onclick = () => {
+                navbar.classList.toggle('active');
+                menuIcon.classList.toggle('fa-xmark'); // Ganti icon menjadi 'x' saat terbuka
+            };
+
+            // Tutup menu saat link diklik (untuk smooth scroll)
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                        menuIcon.classList.remove('fa-xmark');
+                    }
+                });
+            });
+
+
+            // === 2. Interaksi Modal Portofolio ===
+            const modal = document.getElementById('project-modal');
+            const closeBtn = document.querySelector('.close-btn');
+
+            // Fungsi global untuk menampilkan detail modal (dipanggil dari HTML onclick)
+            window.showDetail = function(title, description, techStack, imageSrc) {
+                document.getElementById('modal-title').textContent = title;
+                document.getElementById('modal-desc').textContent = description;
+                document.getElementById('modal-tech').textContent = techStack;
+                document.getElementById('modal-image').src = imageSrc;
+                modal.style.display = 'block';
+            };
+
+            // Menutup modal saat tombol 'x' diklik
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            };
+
+            // Menutup modal saat user mengklik di luar area modal
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            };
+
+
+            // === 3. Efek Aktif Navigasi Saat Scroll ===
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar a');
+
+            window.onscroll = () => {
+                sections.forEach(sec => {
+                    let top = window.scrollY;
+                    let offset = sec.offsetTop - 150; 
+                    let height = sec.offsetHeight;
+                    let id = sec.getAttribute('id');
+
+                    if(top >= offset && top < offset + height) {
+                        navLinks.forEach(links => {
+                            links.classList.remove('active');
+                            document.querySelector('.navbar a[href*=' + id + ']').classList.add('active');
+                        });
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>
