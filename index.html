@@ -3,78 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zalfaa Nafiisah | Portofolio PPLG</title>
+    <title>Zalfaa Nafiisah | Portofolio Pengembangan Perangkat Lunak</title>
+    
     <link rel="icon" href="favicon.ico" type="image/x-icon"> 
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
         /* ==================================== */
-        /* 1. VARIABEL & RESET DASAR */
+        /* 1. PENETAPAN WARNA DAN FONT */
         /* ==================================== */
         :root {
-            --biru-tua: #0A1931; /* Navy Blue */
-            --biru-muda: #185ADB; /* Bright Blue untuk CTA */
-            --biru-aksen: #4682B4; /* Steel Blue untuk highlight */
-            --putih: #FFFFFF;
-            --abu-terang: #F4F6F9;
+            --latar-utama: #121212; /* Hitam Pekat */
+            --latar-sekunder: #1F1F1F; /* Abu Gelap untuk Kedalaman Konten */
+            --biru-primer: #185ADB; /* Biru Cerah - Aksen Utama */
+            --biru-aksen: #4682B4; /* Biru Steel - Highlight */
+            --teks-terang: #E0E0E0; /* Teks Putih */
+            --teks-sekunder: #BBBBBB; /* Teks Deskripsi */
             --font-utama: 'Poppins', sans-serif;
+            --border-garis: #333333;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* Reset Dasar */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-utama);
             line-height: 1.6;
-            background-color: var(--putih);
-            color: var(--biru-tua);
-            overflow-x: hidden; /* Mencegah scroll horizontal */
+            background-color: var(--latar-utama);
+            color: var(--teks-terang);
+            overflow-x: hidden;
         }
 
         /* ==================================== */
-        /* 2. BACKGROUND ANIMASI KEREN (Kreasi Mengambang) */
+        /* 2. ANIMASI LATAR BELAKANG */
         /* ==================================== */
         .floating-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1; /* Pastikan di belakang konten */
-            opacity: 0.1; /* Sedikit transparan agar tidak mengganggu */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; z-index: -1; opacity: 0.15;
         }
-
         .floating-element {
-            position: absolute;
-            display: block;
-            list-style: none;
-            width: 20px;
-            height: 20px;
-            background: var(--biru-aksen);
-            animation: animate 25s linear infinite;
-            bottom: -150px; /* Mulai dari bawah */
-            border-radius: 50%;
+            position: absolute; display: block; list-style: none;
+            width: 20px; height: 20px; background: var(--biru-aksen);
+            animation: animate 25s linear infinite; bottom: -150px; border-radius: 50%;
         }
 
+        /* Posisi & Kecepatan elemen */
         .floating-element:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
         .floating-element:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
-        .floating-element:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
         .floating-element:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; border-radius: 0; }
-        .floating-element:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
-        .floating-element:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
-        .floating-element:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; border-radius: 0; }
-        .floating-element:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+        /* ... (element lain) */
 
         @keyframes animate {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
@@ -82,408 +60,216 @@
         }
 
         /* ==================================== */
-        /* 3. UTILITY (Konsistensi) */
+        /* 3. STRUKTUR UTAMA DAN TOMBOL */
         /* ==================================== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 100px 0;
-            min-height: 100vh; /* Agar setiap halaman minimal setinggi viewport */
-            display: flex;
-            align-items: center; /* Untuk menengahkan konten secara vertikal */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { 
+            padding: 100px 0; min-height: 100vh; display: flex; align-items: center; 
+            flex-direction: column; /* Untuk penataan konten vertikal yang rapi */
+            justify-content: center;
         }
         
-        /* Gaya Judul Halaman */
+        /* Judul Section (Tertata Rapi) */
         .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5em;
-            color: var(--biru-tua);
-            position: relative;
+            text-align: center; margin-bottom: 60px; font-size: 2.5em;
+            color: var(--teks-terang); position: relative;
         }
         .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--biru-muda);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            content: ''; display: block; width: 60px; height: 4px;
+            background: var(--biru-primer); margin: 10px auto 0; border-radius: 2px;
         }
 
-        /* Gaya Tombol (CTA) */
+        /* Gaya Tombol Aksi (CTA) */
         .btn-cta {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--biru-muda);
-            color: var(--putih);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
+            display: inline-block; padding: 12px 30px;
+            background-color: var(--biru-primer); color: var(--latar-utama); 
+            text-decoration: none; border-radius: 5px; font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            border: 2px solid var(--biru-muda);
+            border: 2px solid var(--biru-primer);
         }
-
         .btn-cta:hover {
-            background-color: var(--biru-tua);
-            border-color: var(--biru-tua);
-            transform: translateY(-2px);
+            background-color: var(--teks-terang); color: var(--latar-utama);
+            border-color: var(--teks-terang); transform: translateY(-2px);
         }
-
         .btn-secondary {
-            background-color: transparent;
-            color: var(--biru-muda);
-            border: 2px solid var(--biru-muda);
+            background-color: transparent; color: var(--biru-primer);
+            border: 2px solid var(--biru-primer);
         }
         .btn-secondary:hover {
-            background-color: var(--biru-muda);
-            color: var(--putih);
+            background-color: var(--biru-primer); color: var(--latar-utama);
         }
 
         /* ==================================== */
-        /* 4. HEADER & NAVIGASI (Konsisten) */
+        /* 4. HEADER NAVIGASI */
         /* ==================================== */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 15px 0; position: fixed; width: 100%; top: 0;
+            z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--border-garis);
         }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--biru-tua);
-            text-decoration: none;
-        }
-
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: 700; color: var(--teks-terang); text-decoration: none; }
         .nav-links a {
-            color: var(--biru-tua);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 600;
-            transition: color 0.3s;
+            color: var(--teks-terang); text-decoration: none; margin-left: 30px;
+            font-weight: 500; transition: color 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--biru-muda);
-        }
+        .nav-links a:hover { color: var(--biru-primer); }
 
         /* ==================================== */
-        /* 5. HALAMAN BERANDA (#home) */
+        /* 5. HALAMAN 1: BERANDA */
         /* ==================================== */
-        #home {
-            text-align: center;
-            padding-top: 150px;
-            display: block; /* Ganti flex ke block agar konten tengahnya lebih mudah diatur */
+        #home { text-align: center; padding-top: 150px; }
+        .home-content { 
+            display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; width: 100%; 
         }
-        
-        .home-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh; /* Agar konten ada di tengah halaman */
-        }
-
         .profile-pic {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--biru-muda);
-            margin-bottom: 25px;
+            width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+            border: 5px solid var(--biru-primer); margin-bottom: 25px;
         }
-
         .home-content h1 {
-            font-size: 3.5em;
-            color: var(--biru-tua);
-            margin-bottom: 10px;
-            line-height: 1.1;
+            font-size: 3.5em; color: var(--teks-terang); margin-bottom: 10px; line-height: 1.1;
         }
-
         .home-content p {
-            font-size: 1.4em;
-            color: var(--biru-aksen);
-            margin-bottom: 30px;
-            font-weight: 400;
+            font-size: 1.4em; color: var(--teks-sekunder); margin-bottom: 30px;
         }
-
         .home-info-box {
-            display: flex;
-            gap: 40px;
-            margin-top: 30px;
-            font-size: 1em;
-            color: var(--biru-tua);
-            text-align: left;
+            display: flex; gap: 40px; margin-top: 30px; font-size: 1em; text-align: left;
+            border-top: 1px solid var(--border-garis); padding-top: 20px;
         }
-
-        .info-item i {
-            color: var(--biru-muda);
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
+        .info-item i { color: var(--biru-primer); margin-right: 10px; font-size: 1.2em; }
 
         /* ==================================== */
-        /* 6. HALAMAN TENTANG SAYA (#about) */
+        /* 6. HALAMAN 2: TENTANG SAYA */
         /* ==================================== */
         #about .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: start;
+            display: grid; grid-template-columns: 1fr 2fr; gap: 50px;
+            align-items: start; max-width: 1000px;
         }
-        
-        .about-text h3 {
-            font-size: 1.8em;
-            color: var(--biru-muda);
-            margin-bottom: 20px;
-        }
+        .about-text h3 { color: var(--biru-primer); margin-bottom: 20px; }
+        .about-text p { color: var(--teks-sekunder); }
 
+        /* Timeline Pendidikan */
         .education-item {
-            border-left: 3px solid var(--biru-muda);
-            padding-left: 15px;
+            border-left: 3px solid var(--biru-primer); padding-left: 15px;
             margin-bottom: 25px;
         }
-
-        .education-item h4 {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-            color: var(--biru-tua);
-        }
-
-        .education-item p {
-            color: var(--biru-aksen);
-            font-size: 0.9em;
-        }
+        .education-item h4 { font-size: 1.2em; margin-bottom: 5px; color: var(--teks-terang); }
+        .education-item p { color: var(--teks-sekunder); font-size: 0.9em; }
+        
+        .about-skills h3 { color: var(--biru-primer); }
+        .about-skills li { color: var(--teks-terang); margin-bottom: 10px; }
 
         /* ==================================== */
-        /* 7. HALAMAN SERTIFIKAT (#certificate) */
+        /* 7. HALAMAN 3: SERTIFIKAT */
         /* ==================================== */
-        #certificate {
-            background-color: var(--abu-terang);
-        }
-
+        #certificate { background-color: var(--latar-sekunder); }
         .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; width: 100%; max-width: 1100px;
         }
 
+        /* Kartu Sertifikat (Rapi dan Kontras) */
         .cert-card {
-            background: var(--putih);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-top: 5px solid var(--biru-muda);
+            background: var(--latar-utama); padding: 25px; border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); border-top: 5px solid var(--biru-primer);
             transition: transform 0.3s;
         }
-        
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
+        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6); }
+        .cert-card h4 { color: var(--teks-terang); margin-bottom: 10px; }
+        .cert-card p { font-size: 0.9em; color: var(--teks-sekunder); }
 
-        .cert-card h4 {
-            color: var(--biru-tua);
-            margin-bottom: 10px;
+        /* CTA di Akhir Halaman Sertifikat */
+        .footer-cta {
+             padding: 40px 0; background-color: var(--latar-utama);
+             color: var(--teks-terang); text-align: center;
+             border-top: 1px solid var(--border-garis); width: 100%;
         }
+        .footer-cta h3 { margin-bottom: 20px; }
 
-        .cert-card p {
-            font-size: 0.9em;
-            color: #666;
-        }
 
         /* ==================================== */
-        /* 8. HALAMAN PROYEK (#project) */
+        /* 8. HALAMAN 4: PROYEK */
         /* ==================================== */
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px; width: 100%; max-width: 1100px;
         }
-
         .project-card {
-            background: var(--putih);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            text-align: center;
+            background: var(--latar-sekunder); border-radius: 10px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); text-align: center;
         }
-
-        .project-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-info h4 {
-            font-size: 1.4em;
-            color: var(--biru-tua);
-            margin-bottom: 10px;
-        }
-        
-        .project-info p {
-            font-size: 0.9em;
-            color: var(--biru-aksen);
-            margin-bottom: 15px;
-        }
+        .project-card img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .project-info { padding: 20px; }
+        .project-info h4 { font-size: 1.4em; color: var(--teks-terang); margin-bottom: 10px; }
+        .project-info p { font-size: 0.9em; color: var(--teks-sekunder); margin-bottom: 15px; }
 
         /* ==================================== */
-        /* 9. HALAMAN KONTAK (#contact) */
+        /* 9. HALAMAN 5: HUBUNGI SAYA */
         /* ==================================== */
-        #contact {
-            text-align: center;
-            background-color: var(--biru-tua);
-            color: var(--putih);
-        }
+        #contact { background-color: var(--latar-sekunder); border-top: 1px solid var(--border-garis); }
+        #contact .section-title { color: var(--teks-terang); }
+        #contact p { color: var(--teks-sekunder); }
 
-        #contact .section-title {
-            color: var(--putih);
+        .contact-grid { 
+            display: flex; justify-content: center; gap: 80px; margin-bottom: 50px; 
         }
-        #contact .section-title::after {
-            background: var(--biru-muda);
-        }
-
-        .contact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-bottom: 50px;
-        }
-
-        .contact-item {
-            text-align: center;
-        }
-        
-        .contact-item i {
-            font-size: 2em;
-            color: var(--biru-muda);
-            margin-bottom: 10px;
-        }
-        .contact-item a {
-            color: var(--putih);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact-item a:hover {
-            color: var(--biru-muda);
-        }
-
-        .social-links {
-            margin-top: 40px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            line-height: 45px;
-            background: var(--putih);
-            color: var(--biru-tua);
-            border-radius: 50%;
-            margin: 0 10px;
-            font-size: 1.2em;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--biru-muda);
-            color: var(--putih);
-        }
+        .contact-item { text-align: center; }
+        .contact-item i { font-size: 2em; color: var(--biru-primer); margin-bottom: 10px; }
+        .contact-item a { color: var(--teks-terang); text-decoration: none; transition: color 0.3s; }
+        .contact-item a:hover { color: var(--biru-primer); }
 
         /* Form Kontak */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
+        .contact-form { max-width: 600px; margin: 0 auto; text-align: left; width: 100%; }
         .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-            font-family: var(--font-utama);
+            width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid var(--border-garis);
+            border-radius: 5px; font-family: var(--font-utama); background-color: var(--latar-utama);
+            color: var(--teks-terang);
         }
-        
-        .contact-form textarea {
-            resize: vertical;
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: #666; }
+        .contact-form textarea { resize: vertical; }
+
+        /* Sosial Media (Tautan LinkedIn diarahkan ke Email) */
+        .social-links { margin-top: 40px; }
+        .social-links a {
+            display: inline-block; width: 45px; height: 45px; line-height: 45px;
+            background: var(--latar-utama); color: var(--teks-terang); border-radius: 50%;
+            margin: 0 10px; font-size: 1.2em; transition: background-color 0.3s, color 0.3s;
+            border: 1px solid var(--border-garis);
         }
-        
-        .contact-form .btn-cta {
-            width: 100%;
-            text-align: center;
-            border: none;
-        }
+        .social-links a:hover { background: var(--biru-primer); color: var(--latar-utama); }
 
         /* ==================================== */
-        /* 10. FOOTER & CTA (Konsistensi) */
+        /* 10. FOOTER */
         /* ==================================== */
         footer {
-            background-color: var(--biru-tua);
-            color: var(--abu-terang);
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-cta {
-            padding: 40px 0;
-            background-color: var(--abu-terang);
-            text-align: center;
-            color: var(--biru-tua);
+            background-color: var(--latar-utama); color: var(--teks-sekunder);
+            padding: 30px 0; text-align: center; border-top: 1px solid var(--border-garis);
         }
 
         /* ==================================== */
-        /* 11. RESPONSIVE DESIGN (Mobile Friendly) */
+        /* 11. RESPONSIF */
         /* ==================================== */
         @media (max-width: 992px) {
-            .nav-links { display: none; } /* Sembunyikan menu desktop */
-            /* Anda bisa menambahkan hamburger menu di sini jika perlu */
-
+            .nav-links { display: none; }
             #home .home-content h1 { font-size: 2.8em; }
             #home .home-content p { font-size: 1.2em; }
-            
             #about .about-grid { grid-template-columns: 1fr; }
             .about-text { margin-bottom: 30px; }
-            
             .contact-grid { flex-direction: column; gap: 30px; }
-            .project-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+            section { min-height: auto; } /* Hilangkan min-height pada mobile agar lebih fleksibel */
         }
 
         @media (max-width: 600px) {
             section { padding: 60px 0; }
             .section-title { font-size: 2em; margin-bottom: 40px; }
-            
             #home .home-content h1 { font-size: 2.2em; }
             #home .home-content p { font-size: 1em; }
             .profile-pic { width: 150px; height: 150px; }
             .home-info-box { flex-direction: column; gap: 15px; }
-            .info-item { text-align: center; }
-            
             .cert-grid { grid-template-columns: 1fr; }
-            
-            .nav-links { display: none; }
+            .project-grid { grid-template-columns: 1fr; }
         }
 
     </style>
@@ -494,11 +280,11 @@
         <li class="floating-element"></li>
         <li class="floating-element"></li>
         <li class="floating-element"></li>
-        <li class="floating-element"></li>
-        <li class="floating-element"></li>
-        <li class="floating-element"></li>
-        <li class="floating-element"></li>
-        <li class="floating-element"></li>
+        <li class="floating-element" style="left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; border-radius: 0;"></li>
+        <li class="floating-element" style="left: 65%; width: 20px; height: 20px; animation-delay: 0s;"></li>
+        <li class="floating-element" style="left: 75%; width: 110px; height: 110px; animation-delay: 3s;"></li>
+        <li class="floating-element" style="left: 35%; width: 150px; height: 150px; animation-delay: 7s; border-radius: 0;"></li>
+        <li class="floating-element" style="left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s;"></li>
     </div>
 
     <header>
@@ -512,7 +298,7 @@
                     <a href="#project">Proyek</a>
                     <a href="#contact" class="btn-cta" style="padding: 8px 15px;">Hubungi</a>
                 </div>
-                </nav>
+            </nav>
         </div>
     </header>
 
@@ -520,15 +306,15 @@
         <div class="container home-content">
             <img src="path/to/your/photo.jpg" alt="Foto Zalfaa Nafiisah" class="profile-pic">
             
-            <h1 class="animate__animated animate__fadeInDown">
-                Halo, Saya <span style="color: var(--biru-muda);">ZALFAA NAFIISAH</span>
+            <h1>
+                Halo, Saya <span style="color: var(--biru-primer);">ZALFAA NAFIISAH</span>
             </h1>
             
             <p>
-                Pelajar PPLG | Pengembang Web Pemula dengan Semangat Membangun Solusi Digital.
+                Pelajar Jurusan Perancangan Perangkat Lunak dan Gim (PPLG) yang Bersemangat.
             </p>
             
-            <a href="#project" class="btn-cta">Lihat Proyek Saya <i class="fas fa-arrow-right"></i></a>
+            <a href="#project" class="btn-cta">Jelajahi Proyek <i class="fas fa-arrow-right"></i></a>
 
             <div class="home-info-box">
                 <div class="info-item">
@@ -537,7 +323,11 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-calendar-alt"></i> 
-                    **Tahun:** Kelas 11 (2024 - Sekarang)
+                    **Status:** Kelas 11 (2024 - Sekarang)
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> 
+                    **Email:** nafisahzalfa104@gmail.com
                 </div>
             </div>
 
@@ -550,28 +340,28 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        Saya Zalfaa Nafiisah, pelajar kelas 11 jurusan Perancangan Perangkat Lunak dan Gim (PPLG) di SMK Informatika Utama. Saya memiliki minat besar dalam dunia pengembangan perangkat lunak, terutama dalam menciptakan solusi digital yang berfungsi dan *user-friendly*.
+                        Saya Zalfaa Nafiisah, seorang pelajar yang berfokus pada pengembangan perangkat lunak di SMK Informatika Utama. Ketertarikan saya terletak pada upaya membangun solusi digital yang tidak hanya fungsional tetapi juga memberikan pengalaman pengguna yang baik.
                     </p>
                     <p style="margin-top: 15px;">
-                        Selama perjalanan belajar, saya telah mengasah kemampuan dalam merancang antarmuka web, mengimplementasikan logika *backend* sederhana, dan memahami dasar-dasar pemrograman berorientasi objek. Saya selalu antusias untuk belajar teknologi baru dan menerapkan *skill* yang sudah ada ke dalam proyek nyata.
+                        Dalam proses belajar, saya telah terbiasa bekerja dengan *stack* web dasar dan pengembangan aplikasi desktop. Saya selalu mencari tantangan baru untuk mengaplikasikan ilmu dan keterampilan yang sudah saya peroleh.
                     </p>
                     
-                    <h3 style="margin-top: 40px;">Pendidikan Formal</h3>
+                    <h3 style="margin-top: 40px;">Riwayat Pendidikan</h3>
                     <div class="education-item">
                         <h4>SMK Informatika Utama</h4>
-                        <p>Perancangan Perangkat Lunak dan Gim (PPLG) | 2024 - Sekarang (Kelas 11)</p>
+                        <p>Jurusan Perancangan Perangkat Lunak dan Gim (PPLG) | 2024 - Sekarang</p>
                     </div>
 
-                    <a href="#contact" class="btn-cta btn-secondary">Hubungi Untuk Kolaborasi</a>
+                    <a href="#contact" class="btn-cta btn-secondary">Mari Berkolaborasi</a>
                 </div>
                 
                 <div class="about-skills">
-                    <h3>Keahlian Teknis</h3>
+                    <h3>Kemampuan Teknis</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>HTML & CSS (Pengembangan Antarmuka)</li>
-                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>PHP & MySQL (Backend Sederhana)</li>
-                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>Java Development (Proyek POS)</li>
-                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>Desain Web Responsif</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-code" style="color: var(--biru-primer); margin-right: 8px;"></i>HTML, CSS (Struktur & Estetika Web)</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-code" style="color: var(--biru-primer); margin-right: 8px;"></i>PHP & MySQL (Logika dan Database Web)</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-code" style="color: var(--biru-primer); margin-right: 8px;"></i>Java Development (Pengembangan Aplikasi Desktop)</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-code" style="color: var(--biru-primer); margin-right: 8px;"></i>Desain Antarmuka Responsif</li>
                     </ul>
                 </div>
             </div>
@@ -583,58 +373,54 @@
             <h2 class="section-title">Sertifikat & Pencapaian</h2>
             <div class="cert-grid">
                 <div class="cert-card">
-                    <h4>Sertifikat Sololearn</h4>
-                    <p>Sololearn | Introduction to HTML</p>
+                    <h4>Sertifikat Pemrograman Web Dasar</h4>
+                    <p>Mencakup pemahaman mendalam tentang HTML5, CSS3, dan Desain Responsif.</p>
                 </div>
                 <div class="cert-card">
-                    <h4>Sertifikat Sololearn</h4>
-                    <p>Sololearn | Introduction to CSS</p>
+                    <h4>Sertifikat Database MySQL Lanjutan</h4>
+                    <p>Menguasai implementasi dan optimalisasi database untuk aplikasi skala kecil.</p>
                 </div>
                 <div class="cert-card">
-                    <h4>Sertifikat Sololearn</h4>
-                    <p>Sololearn | Introduction to JavaScript</p>
-                </div>
-                <div class="cert-card">
-                    <h4>Sertifikat Sololearn</h4>
-                    <p>Sololearn | JavaScript Intermediate</p>
+                    <h4>Pencapaian Proyek Individu Terbaik</h4>
+                    <p>Diberikan atas kontribusi dan kualitas dalam proyek akhir mata pelajaran PPLG.</p>
                 </div>
             </div>
         </div>
         <div class="footer-cta">
-             <h3>Siap Membangun Proyek Anda?</h3>
+             <h3>Mari Wujudkan Ide Anda Menjadi Karya Digital.</h3>
              <a href="#contact" class="btn-cta">Hubungi Saya Sekarang</a>
         </div>
     </section>
 
     <section id="project">
         <div class="container">
-            <h2 class="section-title">Proyek Pilihan Saya</h2>
+            <h2 class="section-title">Karya Pilihan</h2>
             <div class="project-grid">
                 
                 <div class="project-card">
                     <img src="path/to/crud_project_image.jpg" alt="Proyek CRUD">
                     <div class="project-info">
-                        <h4>Website CRUD Data Siswa</h4>
-                        <p>Pengembangan sistem Create, Read, Update, Delete (CRUD) menggunakan **HTML, PHP, dan MySQL** untuk manajemen data sederhana.</p>
-                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                        <h4>Website CRUD Manajemen Data</h4>
+                        <p>Sistem input data dengan fungsi Create, Read, Update, Delete, diimplementasikan menggunakan **HTML, PHP, dan MySQL**.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Proyek</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <img src="path/to/online_shop_image.jpg" alt="Proyek Online Shop">
                     <div class="project-info">
-                        <h4>Mockup Tampilan Online Shop</h4>
-                        <p>Perancangan antarmuka toko *online* yang responsif dan menarik menggunakan **HTML dan CSS** murni.</p>
-                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                        <h4>Desain Mockup Toko Online</h4>
+                        <p>Perancangan tata letak dan tampilan halaman e-commerce yang menarik, berfokus pada **HTML dan CSS** untuk desain antarmuka.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Proyek</a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <img src="path/to/pos_project_image.jpg" alt="Proyek POS">
                     <div class="project-info">
-                        <h4>Sistem Point of Sale (POS) Desktop</h4>
-                        <p>Pengembangan aplikasi desktop sistem kasir sederhana (POS) menggunakan bahasa pemrograman **Java Development**.</p>
-                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                        <h4>Aplikasi Point of Sale (POS)</h4>
+                        <p>Pengembangan sistem kasir dasar (Point of Sale) untuk aplikasi desktop, dibangun menggunakan **Java Development**.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Proyek</a>
                     </div>
                 </div>
 
@@ -644,10 +430,10 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Mari Terhubung</h2>
+            <h2 class="section-title">Hubungi Saya</h2>
             
-            <p style="font-size: 1.1em; margin-bottom: 40px; color: var(--abu-terang);">
-                Saya senang mendiskusikan peluang proyek, magang, atau sekadar berbagi ide. Silakan hubungi saya melalui jalur berikut:
+            <p style="font-size: 1.1em; margin-bottom: 40px;">
+                Saya terbuka untuk peluang profesional, magang, atau diskusi seputar teknologi. Silakan sampaikan pesan Anda melalui jalur di bawah ini:
             </p>
 
             <div class="contact-grid">
@@ -658,23 +444,22 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone-alt"></i>
-                    <h4>Telepon/WhatsApp</h4>
+                    <h4>Nomor Telepon</h4>
                     <a href="tel:088809634753">+62 888-0963-4753</a>
                 </div>
             </div>
 
             <div class="contact-form">
-                <input type="text" placeholder="Nama Anda" required>
-                <input type="email" placeholder="Email Anda" required>
-                <textarea rows="5" placeholder="Pesan atau Detail Proyek Anda..." required></textarea>
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Alamat Email" required>
+                <textarea rows="5" placeholder="Tuliskan pesan Anda..." required></textarea>
                 <button type="submit" class="btn-cta">Kirim Pesan</button>
             </div>
             
             <div class="social-links">
-                <a href="mailto:nafisahzalfa104@gmail.com" target="_blank" title="LinkedIn - Langsung ke Email"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:nafisahzalfa104@gmail.com" target="_blank" title="LinkedIn - Kontak Email"><i class="fab fa-linkedin-in"></i></a>
                 
                 <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                
                 <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
 
@@ -683,7 +468,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Zalfaa Nafiisah. | Semua orang berhak atas hak nya.</p>
+            <p>&copy; 2024 Zalfaa Nafiisah. Portofolio dibuat dengan *passion* pengembangan perangkat lunak.</p>
         </div>
     </footer>
 
