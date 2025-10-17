@@ -3,544 +3,685 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Kreatif - [Zalfaa Nafiisah]</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Zalfaa Nafiisah | Portofolio PPLG</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
     
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        /* Variabel Warna */
+        /* ==================================== */
+        /* 1. VARIABEL & RESET DASAR */
+        /* ==================================== */
         :root {
-            --primary-color: #00ADB5; /* Warna Aksen Teal */
-            --secondary-color: #393E46; /* Warna Latar Belakang Gelap */
-            --text-color: #EEEEEE; /* Warna Teks Terang */
-            --light-bg: #222831; /* Warna Latar Belakang Lebih Terang */
-            --card-bg: #4A5059; /* Warna Kartu */
+            --biru-tua: #0A1931; /* Navy Blue */
+            --biru-muda: #185ADB; /* Bright Blue untuk CTA */
+            --biru-aksen: #4682B4; /* Steel Blue untuk highlight */
+            --putih: #FFFFFF;
+            --abu-terang: #F4F6F9;
+            --font-utama: 'Poppins', sans-serif;
         }
 
-        /* Reset dan Dasar */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
+            font-family: var(--font-utama);
             line-height: 1.6;
+            background-color: var(--putih);
+            color: var(--biru-tua);
+            overflow-x: hidden; /* Mencegah scroll horizontal */
         }
 
-        section {
-            padding: 80px 10%;
-            min-height: 100vh;
-        }
-
-        /* Header dan Navigasi */
-        .header {
+        /* ==================================== */
+        /* 2. BACKGROUND ANIMASI KEREN (Kreasi Mengambang) */
+        /* ==================================== */
+        .floating-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 20px 10%;
-            background: var(--light-bg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Pastikan di belakang konten */
+            opacity: 0.1; /* Sedikit transparan agar tidak mengganggu */
         }
 
-        .logo {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .navbar a {
-            font-size: 1rem;
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s ease;
-        }
-
-        .navbar a:hover,
-        .navbar a.active {
-            color: var(--primary-color);
-        }
-
-        #menu-icon {
-            font-size: 1.8rem;
-            color: var(--text-color);
-            cursor: pointer;
-            display: none; 
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 100px;
-        }
-
-        .hero-content {
-            max-width: 50%;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .hero-image img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
+        .floating-element {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: var(--biru-aksen);
+            animation: animate 25s linear infinite;
+            bottom: -150px; /* Mulai dari bawah */
             border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px var(--primary-color);
-            transition: transform 0.5s ease;
         }
 
-        .hero-image img:hover {
-            transform: scale(1.05);
+        .floating-element:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .floating-element:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .floating-element:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .floating-element:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; border-radius: 0; }
+        .floating-element:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .floating-element:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+        .floating-element:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; border-radius: 0; }
+        .floating-element:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
         }
 
-        .btn {
+        /* ==================================== */
+        /* 3. UTILITY (Konsistensi) */
+        /* ==================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+            min-height: 100vh; /* Agar setiap halaman minimal setinggi viewport */
+            display: flex;
+            align-items: center; /* Untuk menengahkan konten secara vertikal */
+        }
+        
+        /* Gaya Judul Halaman */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5em;
+            color: var(--biru-tua);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--biru-muda);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Gaya Tombol (CTA) */
+        .btn-cta {
             display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary-color);
-            color: var(--secondary-color);
-            border-radius: 5px;
+            padding: 12px 30px;
+            background-color: var(--biru-muda);
+            color: var(--putih);
             text-decoration: none;
+            border-radius: 5px;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 2px solid var(--biru-muda);
         }
 
-        .btn:hover {
-            background: #009aa0;
+        .btn-cta:hover {
+            background-color: var(--biru-tua);
+            border-color: var(--biru-tua);
             transform: translateY(-2px);
         }
 
-        /* Riwayat Section (Timeline) */
-        .riwayat {
-            background-color: var(--light-bg);
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--biru-muda);
+            border: 2px solid var(--biru-muda);
+        }
+        .btn-secondary:hover {
+            background-color: var(--biru-muda);
+            color: var(--putih);
+        }
+
+        /* ==================================== */
+        /* 4. HEADER & NAVIGASI (Konsisten) */
+        /* ==================================== */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--biru-tua);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--biru-tua);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--biru-muda);
+        }
+
+        /* ==================================== */
+        /* 5. HALAMAN BERANDA (#home) */
+        /* ==================================== */
+        #home {
             text-align: center;
+            padding-top: 150px;
+            display: block; /* Ganti flex ke block agar konten tengahnya lebih mudah diatur */
+        }
+        
+        .home-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh; /* Agar konten ada di tengah halaman */
         }
 
-        .riwayat h2 {
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--biru-muda);
+            margin-bottom: 25px;
         }
 
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .home-content h1 {
+            font-size: 3.5em;
+            color: var(--biru-tua);
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .home-content p {
+            font-size: 1.4em;
+            color: var(--biru-aksen);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .home-info-box {
+            display: flex;
             gap: 40px;
+            margin-top: 30px;
+            font-size: 1em;
+            color: var(--biru-tua);
             text-align: left;
         }
 
-        .timeline-item h3 {
-            color: var(--primary-color);
+        .info-item i {
+            color: var(--biru-muda);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* ==================================== */
+        /* 6. HALAMAN TENTANG SAYA (#about) */
+        /* ==================================== */
+        #about .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8em;
+            color: var(--biru-muda);
             margin-bottom: 20px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 5px;
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+        .education-item {
+            border-left: 3px solid var(--biru-muda);
+            padding-left: 15px;
+            margin-bottom: 25px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h4 {
+        .education-item h4 {
+            font-size: 1.2em;
             margin-bottom: 5px;
+            color: var(--biru-tua);
         }
 
-        .card .date {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+        .education-item p {
+            color: var(--biru-aksen);
+            font-size: 0.9em;
         }
 
-        /* Portofolio Section */
-        .portofolio h2 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+        /* ==================================== */
+        /* 7. HALAMAN SERTIFIKAT (#certificate) */
+        /* ==================================== */
+        #certificate {
+            background-color: var(--abu-terang);
         }
 
-        .portofolio-grid {
+        .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .portofolio-item {
-            position: relative;
+        .cert-card {
+            background: var(--putih);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--biru-muda);
+            transition: transform 0.3s;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-card h4 {
+            color: var(--biru-tua);
+            margin-bottom: 10px;
+        }
+
+        .cert-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* ==================================== */
+        /* 8. HALAMAN PROYEK (#project) */
+        /* ==================================== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--putih);
+            border-radius: 10px;
             overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
 
-        .portofolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        .portofolio-item img {
+        .project-card img {
             width: 100%;
-            height: 350px;
+            height: 250px;
             object-fit: cover;
             display: block;
         }
 
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--text-color);
-            padding: 15px;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
+        .project-info {
+            padding: 20px;
         }
 
-        .portofolio-item:hover .overlay {
-            transform: translateY(0);
+        .project-info h4 {
+            font-size: 1.4em;
+            color: var(--biru-tua);
+            margin-bottom: 10px;
         }
-
-        .overlay h4 {
-            margin-bottom: 5px;
-            color: var(--primary-color);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .modal-content {
-            background-color: var(--light-bg);
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.5s;
-        }
-
-        .modal-content img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid var(--primary-color);
-        }
-
-        .modal-content h3 {
-            color: var(--primary-color);
+        
+        .project-info p {
+            font-size: 0.9em;
+            color: var(--biru-aksen);
             margin-bottom: 15px;
-            font-size: 2rem;
         }
 
-        .modal-content .tech-stack {
-            font-style: italic;
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px dashed var(--primary-color);
+        /* ==================================== */
+        /* 9. HALAMAN KONTAK (#contact) */
+        /* ==================================== */
+        #contact {
+            text-align: center;
+            background-color: var(--biru-tua);
+            color: var(--putih);
         }
 
-        .close-btn {
-            color: var(--text-color);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        #contact .section-title {
+            color: var(--putih);
+        }
+        #contact .section-title::after {
+            background: var(--biru-muda);
         }
 
-        .close-btn:hover,
-        .close-btn:focus {
-            color: var(--primary-color);
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item i {
+            font-size: 2em;
+            color: var(--biru-muda);
+            margin-bottom: 10px;
+        }
+        .contact-item a {
+            color: var(--putih);
             text-decoration: none;
-            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: var(--biru-muda);
         }
 
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        .social-links {
+            margin-top: 40px;
         }
 
-        /* Kontak Section */
-        .kontak {
-            background-color: var(--secondary-color);
-            text-align: center;
+        .social-links a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background: var(--putih);
+            color: var(--biru-tua);
+            border-radius: 50%;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .kontak h2 {
-            font-size: 2.5rem;
+        .social-links a:hover {
+            background: var(--biru-muda);
+            color: var(--putih);
+        }
+
+        /* Form Kontak */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
             margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: var(--font-utama);
         }
-
-        .kontak p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+        
+        .contact-form textarea {
+            resize: vertical;
         }
-
-        /* Footer */
-        .footer {
+        
+        .contact-form .btn-cta {
+            width: 100%;
             text-align: center;
-            padding: 20px 10%;
-            background: var(--light-bg);
-            color: var(--text-color);
+            border: none;
         }
 
-        /* Responsive (Mobile View) */
-        @media (max-width: 991px) {
-            .header {
-                padding: 20px 5%;
-            }
-            section {
-                padding: 80px 5%;
-            }
-            .navbar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 1rem 0;
-                background: var(--light-bg);
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
-                display: none; 
-                text-align: center;
-                transition: all 0.5s ease;
-            }
-            .navbar.active {
-                display: block; 
-            }
-            .navbar a {
-                display: block;
-                margin: 1rem 0;
-                font-size: 1.2rem;
-            }
-            #menu-icon {
-                display: block; 
-            }
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .hero-content {
-                max-width: 100%;
-                margin-top: 40px;
-            }
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .hero-image img {
-                width: 200px;
-                height: 200px;
-            }
-            .timeline {
-                grid-template-columns: 1fr;
-            }
-            .modal-content {
-                width: 90%;
-                margin: 10% auto;
-            }
+        /* ==================================== */
+        /* 10. FOOTER & CTA (Konsistensi) */
+        /* ==================================== */
+        footer {
+            background-color: var(--biru-tua);
+            color: var(--abu-terang);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .footer-cta {
+            padding: 40px 0;
+            background-color: var(--abu-terang);
+            text-align: center;
+            color: var(--biru-tua);
+        }
+
+        /* ==================================== */
+        /* 11. RESPONSIVE DESIGN (Mobile Friendly) */
+        /* ==================================== */
+        @media (max-width: 992px) {
+            .nav-links { display: none; } /* Sembunyikan menu desktop */
+            /* Anda bisa menambahkan hamburger menu di sini jika perlu */
+
+            #home .home-content h1 { font-size: 2.8em; }
+            #home .home-content p { font-size: 1.2em; }
+            
+            #about .about-grid { grid-template-columns: 1fr; }
+            .about-text { margin-bottom: 30px; }
+            
+            .contact-grid { flex-direction: column; gap: 30px; }
+            .project-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 60px 0; }
+            .section-title { font-size: 2em; margin-bottom: 40px; }
+            
+            #home .home-content h1 { font-size: 2.2em; }
+            #home .home-content p { font-size: 1em; }
+            .profile-pic { width: 150px; height: 150px; }
+            .home-info-box { flex-direction: column; gap: 15px; }
+            .info-item { text-align: center; }
+            
+            .cert-grid { grid-template-columns: 1fr; }
+            
+            .nav-links { display: none; }
+        }
+
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <a href="#" class="logo">ZALFAA NAFIISAH</a>
-        <nav class="navbar">
-            <a href="#home" class="active">Profil</a>
-            <a href="#riwayat">Riwayat</a>
-            <a href="#portofolio">Portofolio</a>
-            <a href="#kontak">Kontak</a>
-        </nav>
-        <div id="menu-icon" class="fas fa-bars"></div>
+    <div class="floating-container">
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+        <li class="floating-element"></li>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Zalfaa.</a>
+                <div class="nav-links">
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang</a>
+                    <a href="#certificate">Sertifikat</a>
+                    <a href="#project">Proyek</a>
+                    <a href="#contact" class="btn-cta" style="padding: 8px 15px;">Hubungi</a>
+                </div>
+                </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Halo, Saya Zalfaa Nafiisah</h1>
-                <p>Siswa aktif SMK Informatika Utama jurusan Perancangan Perangkat Lunak dan Gim (PPLG), dengan minat besar dan motivasi tinggi dalam mengubah ide menjadi kode yang berfungsi. Selama pendidikan, saya telah berhasil membangun sistem yang memecahkan masalah nyata, seperti menyederhanakan transaksi dengan Sistem POS dan mengelola inventaris via aplikasi CRUD berbasis PHP dan MySQL. Saya memiliki inisiatif tinggi, senang bekerja dalam tim, dan selalu mencari solusi logis. Berambisi untuk memulai karir praktis sebagai Junior Web Developer atau Intern.</p>
-                <a href="#portofolio" class="btn">Lihat Karya Saya</a>
-            </div>
-            <div class="hero-image">
-                <img src="zalfaa.png" alt="Foto Profil"> </div>
-        </section>
+    <section id="home">
+        <div class="container home-content">
+            <img src="path/to/your/photo.jpg" alt="Foto Zalfaa Nafiisah" class="profile-pic">
+            
+            <h1 class="animate__animated animate__fadeInDown">
+                Halo, Saya <span style="color: var(--biru-muda);">ZALFAA NAFIISAH</span>
+            </h1>
+            
+            <p>
+                Pelajar PPLG | Pengembang Web Pemula dengan Semangat Membangun Solusi Digital.
+            </p>
+            
+            <a href="#project" class="btn-cta">Lihat Proyek Saya <i class="fas fa-arrow-right"></i></a>
 
-        <section id="riwayat" class="riwayat">
-            <h2>Riwayat Singkat</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Pendidikan</h3>
-                    <div class="card">
-                        <h4>Perancangan Perangkat Lunak dan Gim</h4>
-                        <p class="date">2024-Sekarang (kelas 11)</p>
-                        <p>SMK Informatika Utama</p>
-                    </div>
+            <div class="home-info-box">
+                <div class="info-item">
+                    <i class="fas fa-school"></i> 
+                    **Pendidikan:** SMK Informatika Utama (PPLG)
                 </div>
-                <div class="timeline-item">
-                    <h3>Organisasi & Pengalaman</h3>
-                    <div class="card">
-                        <h4></h4>
-                        <p class="date">2020 - 2021 | Himpunan Mahasiswa</p>
-                        <p>Bertanggung jawab atas desain materi publikasi dan pengelolaan website organisasi.</p>
-                    </div>
-                    <div class="card">
-                        <h4>Freelancer Web Developer</h4>
-                        <p class="date">2022 - Sekarang</p>
-                        <p>Membangun berbagai website *custom* untuk klien kecil dan menengah.</p>
-                    </div>
+                <div class="info-item">
+                    <i class="fas fa-calendar-alt"></i> 
+                    **Tahun:** Kelas 11 (2024 - Sekarang)
                 </div>
             </div>
-        </section>
 
-        <section id="portofolio" class="portofolio">
-            <h2>Portofolio Pembuatan Website</h2>
-            <div class="portofolio-grid">
-                <div class="portofolio-item" onclick="showDetail('Proyek E-Commerce X', 'Aplikasi E-Commerce modern yang fokus pada UX/UI minimalis. Menggunakan fitur keranjang interaktif dan *lazy loading* untuk performa.', 'HTML, CSS (Sass), JavaScript (Vue.js), Node.js, MongoDB', 'screenshot-ecommerce.jpg')">
-                    <img src="online.png" alt="Screenshot E-Commerce X"> 
-                    <div class="overlay">
-                        <h4>Proyek E-Commerce </h4>
-                        <p>Online Shop (HTML & CSS)</p>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <div class="portofolio-item" onclick="showDetail('Website Profil Agensi Y', 'Website satu halaman (*one-page*) dengan efek parallax dan animasi *scroll* yang halus. Dirancang responsif dan performa tinggi.', 'HTML5, CSS3, JavaScript Murni (Vanilla JS), GSAP Library', 'screenshot-agensi.jpg')">
-                    <img src="outputak.png" alt="Screenshot Profil Agensi Y">
-                    <div class="overlay">
-                        <h4>Website crud penjualan</h4>
-                        <p>Projek Web CRUD Penjualan (PHP & MySQL)</p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Saya Zalfaa Nafiisah, pelajar kelas 11 jurusan Perancangan Perangkat Lunak dan Gim (PPLG) di SMK Informatika Utama. Saya memiliki minat besar dalam dunia pengembangan perangkat lunak, terutama dalam menciptakan solusi digital yang berfungsi dan *user-friendly*.
+                    </p>
+                    <p style="margin-top: 15px;">
+                        Selama perjalanan belajar, saya telah mengasah kemampuan dalam merancang antarmuka web, mengimplementasikan logika *backend* sederhana, dan memahami dasar-dasar pemrograman berorientasi objek. Saya selalu antusias untuk belajar teknologi baru dan menerapkan *skill* yang sudah ada ke dalam proyek nyata.
+                    </p>
+                    
+                    <h3 style="margin-top: 40px;">Pendidikan Formal</h3>
+                    <div class="education-item">
+                        <h4>SMK Informatika Utama</h4>
+                        <p>Perancangan Perangkat Lunak dan Gim (PPLG) | 2024 - Sekarang (Kelas 11)</p>
                     </div>
+
+                    <a href="#contact" class="btn-cta btn-secondary">Hubungi Untuk Kolaborasi</a>
                 </div>
                 
+                <div class="about-skills">
+                    <h3>Keahlian Teknis</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>HTML & CSS (Pengembangan Antarmuka)</li>
+                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>PHP & MySQL (Backend Sederhana)</li>
+                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>Java Development (Proyek POS)</li>
+                        <li style="margin-bottom: 10px; color: var(--biru-tua);"><i class="fas fa-code" style="color: var(--biru-muda); margin-right: 8px;"></i>Desain Web Responsif</li>
+                    </ul>
                 </div>
-        </section>
-
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <img id="kalkulator.jpg" src="" alt="Detail Proyek">
-                <h3 id="modal-title"></h3>
-                <p id="modal-desc"></p>
-                <p class="tech-stack">**Tech Stack:** <span id="modal-tech"></span></p>
             </div>
         </div>
+    </section>
 
-        <section id="kontak" class="kontak">
-            <h2>Hubungi Saya</h2>
-            <p>Tertarik untuk bekerja sama? Mari berdiskusi!</p>
-            <a href="nafisahzalfa104@gmail.com" class="btn primary">Kirim Email</a>
-        </section>
-    </main>
+    <section id="certificate">
+        <div class="container">
+            <h2 class="section-title">Sertifikat & Pencapaian</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h4>Sertifikat Pemrograman Dasar PHP</h4>
+                    <p>Institusi XYZ | Menyelesaikan kursus dasar pemrograman PHP dan MySQL.</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Sertifikat Desain UI/UX</h4>
+                    <p>Institusi Desain | Mempelajari prinsip dasar desain antarmuka pengguna.</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Juara 3 Lomba Web Design Sekolah</h4>
+                    <p>SMK Informatika Utama | Penghargaan dalam kompetisi desain antarmuka web.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-cta">
+             <h3>Siap Membangun Proyek Anda?</h3>
+             <a href="#contact" class="btn-cta">Hubungi Saya Sekarang</a>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Zalfaa Nafiisah. Semua Hak Dilindungi.</p>
+    <section id="project">
+        <div class="container">
+            <h2 class="section-title">Proyek Pilihan Saya</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <img src="path/to/crud_project_image.jpg" alt="Proyek CRUD">
+                    <div class="project-info">
+                        <h4>Website CRUD Data Siswa</h4>
+                        <p>Pengembangan sistem Create, Read, Update, Delete (CRUD) menggunakan **HTML, PHP, dan MySQL** untuk manajemen data sederhana.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="path/to/online_shop_image.jpg" alt="Proyek Online Shop">
+                    <div class="project-info">
+                        <h4>Mockup Tampilan Online Shop</h4>
+                        <p>Perancangan antarmuka toko *online* yang responsif dan menarik menggunakan **HTML dan CSS** murni.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="path/to/pos_project_image.jpg" alt="Proyek POS">
+                    <div class="project-info">
+                        <h4>Sistem Point of Sale (POS) Desktop</h4>
+                        <p>Pengembangan aplikasi desktop sistem kasir sederhana (POS) menggunakan bahasa pemrograman **Java Development**.</p>
+                        <a href="#" class="btn-cta btn-secondary" style="padding: 8px 15px;">Lihat Detail</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Mari Terhubung</h2>
+            
+            <p style="font-size: 1.1em; margin-bottom: 40px; color: var(--abu-terang);">
+                Saya senang mendiskusikan peluang proyek, magang, atau sekadar berbagi ide. Silakan hubungi saya melalui jalur berikut:
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:nafisahzalfa104@gmail.com">nafisahzalfa104@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Telepon/WhatsApp</h4>
+                    <a href="tel:088809634753">+62 888-0963-4753</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea rows="5" placeholder="Pesan atau Detail Proyek Anda..." required></textarea>
+                <button type="submit" class="btn-cta">Kirim Pesan</button>
+            </div>
+            
+            <div class="social-links">
+                <a href="mailto:nafisahzalfa104@gmail.com" target="_blank" title="LinkedIn - Langsung ke Email"><i class="fab fa-linkedin-in"></i></a>
+                
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Zalfaa Nafiisah. | Semua orang berhak atas hak nya.</p>
+        </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // === 1. Interaksi Menu Hamburger (Mobile) ===
-            const menuIcon = document.getElementById('menu-icon');
-            const navbar = document.querySelector('.navbar');
-
-            menuIcon.onclick = () => {
-                navbar.classList.toggle('active');
-                menuIcon.classList.toggle('fa-xmark'); // Ganti icon menjadi 'x' saat terbuka
-            };
-
-            // Tutup menu saat link diklik (untuk smooth scroll)
-            document.querySelectorAll('.navbar a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navbar.classList.contains('active')) {
-                        navbar.classList.remove('active');
-                        menuIcon.classList.remove('fa-xmark');
-                    }
-                });
-            });
-
-
-            // === 2. Interaksi Modal Portofolio ===
-            const modal = document.getElementById('project-modal');
-            const closeBtn = document.querySelector('.close-btn');
-
-            // Fungsi global untuk menampilkan detail modal (dipanggil dari HTML onclick)
-            window.showDetail = function(title, description, techStack, imageSrc) {
-                document.getElementById('modal-title').textContent = title;
-                document.getElementById('modal-desc').textContent = description;
-                document.getElementById('modal-tech').textContent = techStack;
-                document.getElementById('modal-image').src = imageSrc;
-                modal.style.display = 'block';
-            };
-
-            // Menutup modal saat tombol 'x' diklik
-            closeBtn.onclick = function() {
-                modal.style.display = 'none';
-            };
-
-            // Menutup modal saat user mengklik di luar area modal
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            };
-
-
-            // === 3. Efek Aktif Navigasi Saat Scroll ===
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.navbar a');
-
-            window.onscroll = () => {
-                sections.forEach(sec => {
-                    let top = window.scrollY;
-                    let offset = sec.offsetTop - 150; 
-                    let height = sec.offsetHeight;
-                    let id = sec.getAttribute('id');
-
-                    if(top >= offset && top < offset + height) {
-                        navLinks.forEach(links => {
-                            links.classList.remove('active');
-                            document.querySelector('.navbar a[href*=' + id + ']').classList.add('active');
-                        });
-                    }
-                });
-            };
-        });
-    </script>
 </body>
 </html>
